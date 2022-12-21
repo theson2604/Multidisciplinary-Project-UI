@@ -17,12 +17,12 @@ function Home() {
     return (
         <div>
             <h1>Home</h1>
-            {Data.data.map((prevInfo) => {
+            {/* {Data.data.map((prevInfo) => {
                 return <PreviewPost
                     key={prevInfo._id}
                     previewInfo={prevInfo}
                 />
-            })}
+            })} */}
         </div>
     );
 }
