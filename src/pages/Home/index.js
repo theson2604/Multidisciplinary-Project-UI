@@ -4,12 +4,16 @@ import axios from "axios";
 // PHONG TODO
 function Home() {
 
+    const [Loading, setLoading] = useState(true)
+
     const [Data, setData] = useState([])
 
     const fetchData = async () => {
         const response = await axios.get("http://localhost:3000/posts/preview")
         setData(response)
+        setLoading(false)
     }
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -17,12 +21,17 @@ function Home() {
     return (
         <div>
             <h1>Home</h1>
-            {/* {Data.data.map((prevInfo) => {
-                return <PreviewPost
-                    key={prevInfo._id}
-                    previewInfo={prevInfo}
-                />
-            })} */}
+            {Loading ?
+                <div>loading</div>
+                :
+                Data.data.map((prevInfo) => {
+                    return <PreviewPost
+                        key={prevInfo._id}
+                        previewInfo={prevInfo}
+                    />
+                })
+            }
+
         </div>
     );
 }

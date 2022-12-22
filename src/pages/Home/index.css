@@ -1,3 +1,7 @@
+:root {
+    --dark-color: #17252a
+}
+
 li {
     display: inline-block;
 }
@@ -13,6 +17,16 @@ li {
     background: #FFFFFF;
     box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
     border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+    padding: 15px;
+
+}
+
+.prev-post_cTitle {
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--dark-color);
+    font-family: Arial, Helvetica, sans-serif
 }
 
 .prev-post_user {
@@ -20,4 +34,16 @@ li {
     height: 70px;
     width: 400px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+}
+
+.prev-post_cImage {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 5px;
+}
+
+.prev-post_uAvatar {
+    width: 30px;
+    border-radius: 100%;
 }
