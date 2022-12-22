@@ -4,6 +4,12 @@ import "./index.css"
 
 function PreviewPost({ previewInfo }) {
 
+    const [Liked, setLiked] = useState(previewInfo.liked)
+
+    const HandleLiked = () => {
+        setLiked(!Liked)
+    }
+
     const showPost = () => {
         console.log("Call API for this id " + previewInfo._id)
     }
@@ -11,7 +17,25 @@ function PreviewPost({ previewInfo }) {
     const AuthorFullName =
         previewInfo.authorDetail.fname + " " + previewInfo.authorDetail.lname
 
-    const PostTitle = previewInfo.title.length < 70 ? previewInfo.title : previewInfo.title.slice(0, 70) + "..."
+    const PostTitle = previewInfo.title.length < 70 ?
+        previewInfo.title : previewInfo.title.slice(0, 70) + "..."
+
+    const ViewIcon = !Liked ?
+        <Icons5.IoHeartOutline
+            className='prev-post_uIcon'
+            style={{ color: "#A69797" }} /> :
+        <Icons5.IoHeart
+            className='prev-post_uIcon'
+            style={{ color: "red" }}
+        />
+
+    useEffect(
+        () => {
+            // call API
+            console.log("User click on liked " + previewInfo.liked)
+        },
+        [Liked]
+    )
 
     return (
         <div className='prev-post' onClick={showPost}>
@@ -27,19 +51,29 @@ function PreviewPost({ previewInfo }) {
                         alt='Post image' />
                 </div>
             </div>
+            {/* User information part */}
             <div className='prev-post_user'>
-                {AuthorFullName}
-                <div>
+                <div className='prev-post_uInfo'>
                     <img
                         className='prev-post_uAvatar'
                         src={previewInfo.authorDetail.avatar}
                         alt='Post image' />
-                    {previewInfo.like}
-                    <Icons5.IoHeart />
-                    <Icons5.IoHeartOutline />
-                    {previewInfo.liked}
-                    {previewInfo.view}
-                    <Icons5.IoEyeSharp />
+                    {AuthorFullName}
+                </div>
+                <div className='prev-post_uStatus'>
+                    <button className='centerBtn'>
+                        <Icons5.IoEyeSharp className='prev-post_uIcon'
+                            style={{ color: "#0000ffa6" }}
+                        />
+                        {previewInfo.view}
+                    </button>
+                    <button
+                        className='centerBtn'
+                        onClick={HandleLiked}
+                    >
+                        {ViewIcon}
+                        {previewInfo.like}
+                    </button>
                 </div>
             </div>
 

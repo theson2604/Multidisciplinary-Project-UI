@@ -8,7 +8,6 @@ li {
 
 .prev-post {
     margin: 10px 30px 10px 30px;
-    cursor: pointer;
 }
 
 .prev-post_container {
@@ -19,14 +18,13 @@ li {
     border-radius: 10px 10px 0px 0px;
     overflow: hidden;
     padding: 15px;
-
+    cursor: pointer;
 }
 
 .prev-post_cTitle {
     font-size: 25px;
     font-weight: 600;
     color: var(--dark-color);
-    font-family: Arial, Helvetica, sans-serif
 }
 
 .prev-post_user {
@@ -34,7 +32,7 @@ li {
     height: 70px;
     width: 400px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-    padding: 15px;
+    padding: 10px;
 }
 
 .prev-post_cImage {
@@ -46,4 +44,45 @@ li {
 .prev-post_uAvatar {
     width: 30px;
     border-radius: 100%;
+    margin: 5px;
+}
+
+.prev-post_uInfo {
+    display: inline-flex;
+    align-items: center;
+    width: 330px;
+    font-weight: 600;
+}
+
+.prev-post_uStatus {
+    display: inline-flex;
+    align-items: center;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #3D3D4E;
+}
+
+.centerBtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: none;
+    border: none;
+    background-color: white;
+    font-size: 18px;
+    margin: none;
+    padding: none;
+    cursor: pointer;
+}
+
+.prev-post_uIcon {
+    margin-right: 3px;
+}
+
+button:disabled,
+button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
 }
