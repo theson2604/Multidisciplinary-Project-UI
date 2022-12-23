@@ -45,7 +45,7 @@ function PreviewPost({ previewInfo }) {
     )
 
     return (
-        <div className='prev-post' >
+        <div className='prev-post hoverBigBlur' >
             <div className='prev-post_container ' onClick={showPost}>
                 <span className='prev-post_cTitle'>
                     {PostTitle}

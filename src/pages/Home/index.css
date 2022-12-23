@@ -48,7 +48,7 @@ li {
 .prev-post_container {
     height: 300px;
     width: 400px;
-    background: #FFFFFF;
+    background: var(--color-background-main);
     box-shadow: var(--color-box-shadow1);
     border-radius: 10px 10px 0px 0px;
     overflow: hidden;
@@ -57,20 +57,25 @@ li {
 }
 
 .prev-post_cTitle {
-    font-size: 25px;
+    font-size: 20px;
+    text-align: justify;
     font-weight: 500;
-    color: var(--dark-color);
+    color: var(--color-main-black);
     font-family: 'Inter Tight', sans-serif;
+    cursor: pointer;
 }
 
 .prev-post_user {
     background: #FFFFFF;
-    height: 70px;
+    height: 56px;
     width: 400px;
     box-shadow: var(--color-box-shadow1);
-    padding: 10px;
-    font-size: 1.2rem;
-    color: var(--color-dark);
+    padding: 0px 10px 0px 10px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    color: black;
+    display: flex;
+    align-items: center;
 }
 
 .prev-post_cImage {
@@ -89,13 +94,11 @@ li {
     display: inline-flex;
     align-items: center;
     width: 330px;
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
 }
 
 .prev-post_uStatus {
-    display: inline-flex;
-    align-items: center;
     display: inline-block;
     font-size: 18px;
     font-weight: 600;

@@ -3,7 +3,7 @@ import "./index.css"
 import PreviewBox from "./preview-box"
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import LoadingAnimation from "../Home/loading";
 
 function Administration() {
 
@@ -27,7 +27,7 @@ function Administration() {
             </h1>
             <div className="frame">
                 {Loading ?
-                    <h1>loading</h1>
+                    <LoadingAnimation />
                     :
                     <Fragment>
                         <PreviewBox

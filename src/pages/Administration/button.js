@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
 import "./index.css"
 
@@ -21,7 +20,11 @@ function Button({ title, postId, setHidenPost }) {
     }
 
     return (
-        <button className={`${title ? "btnDecline" : "btnApprove"}`}
+        <button
+            className={`${title ?
+                "btnDecline" :
+                "btnApprove"} 
+                hoverBigBlur`}
             onClick={title ? DeclineHandle : ApproveHandle}
         >
             {

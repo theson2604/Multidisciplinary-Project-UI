@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Fragment } from 'react';
 import PreviewPost from "./preview-post"
 import axios from "axios";
+import LoadingAnimation from './loading';
+
 // PHONG TODO
 function Home() {
 
@@ -24,7 +26,7 @@ function Home() {
 
             <h1>Home</h1>
             {Loading ?
-                <div>loading</div>
+                <LoadingAnimation />
                 :
                 Data.data.map((prevInfo) => {
                     return <PreviewPost

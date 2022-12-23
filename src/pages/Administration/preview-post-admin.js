@@ -26,7 +26,7 @@ function PreviewPostAdmin({ previewInfo }) {
 
     return (
         <div className=
-            {`prev-post-admin 
+            {`hoverBigBlur prev-post-admin 
             ${HidenPost ? "prev-post-admin--hidden" : ""}`
             }>
             <div className='prev-post-admin_container'
