@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import * as Icons5 from "react-icons/io5";
+import { Navigate, useNavigate } from 'react-router-dom';
 import "./index.css"
 
 function PreviewPost({ previewInfo }) {
 
+    const navigate = useNavigate()
     const [Liked, setLiked] = useState(previewInfo.liked)
 
     const HandleLiked = () => {
@@ -11,6 +13,7 @@ function PreviewPost({ previewInfo }) {
     }
 
     const showPost = () => {
+        navigate("/post/" + previewInfo._id)
         console.log("Call API for this id " + previewInfo._id)
     }
 
@@ -56,7 +59,9 @@ function PreviewPost({ previewInfo }) {
             </div>
             {/* User information part */}
             <div className='prev-post_user'>
-                <div className='prev-post_uInfo' onClick={showUser}>
+                <div
+                    className='prev-post_uInfo'
+                    onClick={() => showUser}>
                     <img
                         className='prev-post_uAvatar'
                         src={previewInfo.authorDetail.avatar}
