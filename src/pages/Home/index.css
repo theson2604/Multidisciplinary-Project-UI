@@ -67,7 +67,7 @@ li {
     background: #FFFFFF;
     height: 70px;
     width: 400px;
-    box-shadow: 0px 1px 4px var(--color-box-shadow);
+    box-shadow: var(--color-box-shadow1);
     padding: 10px;
     font-size: 1.2rem;
     color: var(--color-dark);
