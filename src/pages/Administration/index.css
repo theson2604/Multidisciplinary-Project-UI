@@ -1,0 +1,89 @@
+.box-admin {
+    width: 480px;
+    height: 540px;
+    background: #FFFFFF;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0.5px 2px rgba(0, 0, 0, 0.5);
+    display: inline-table;
+    margin: 2rem 1.6rem 1.6rem 1.6rem;
+}
+
+.prev-post-admin {
+    width: 95%;
+    max-height: 200px;
+    background-color: aqua;
+    background: var(--color-background-main);
+    box-shadow: var(--color-box-shadow2);
+    border-radius: 3px;
+    margin: 10px;
+}
+
+.prev-post-admin_container {
+    font-size: 25px;
+    text-align: justify;
+    font-weight: 500;
+    color: var(--color-main-black);
+    font-family: 'Inter Tight', sans-serif;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+}
+
+.box-name {
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+    margin-top: 5px;
+    padding-left: 15px;
+    cursor: pointer;
+    color: var(--color-main);
+    text-transform: uppercase;
+}
+
+.user-post {
+
+    display: inline-flex;
+    align-items: center;
+    width: 280px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.administration-container {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.btn {
+    font-family: 'Inter Tight', sans-serif;
+
+    width: 74px;
+    height: 30px;
+    background: var(--color-main-btn);
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-size: small;
+    font-weight: 400;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn2 {
+    font-family: 'Inter Tight', sans-serif;
+
+    width: 74px;
+    height: 30px;
+    color: var(--color-main-btn);
+    border-radius: 50px;
+    border: none;
+    background: white;
+    font-size: small;
+    margin: 5px;
+    font-weight: 400;
+    cursor: pointer;
+
+}
+
+.user-and-btn-box {
+    display: flex;
+    padding: 5px;
+}

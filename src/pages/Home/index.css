@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?400&family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
 :root {
     --color-dark: #17252a;
     --color-main: rgba(43, 122, 120, 1);
-    --color-main2: rgb(21, 61, 60);
-    --color-box-shadow: rgba(0, 0, 0, 0.25);
+    --color-main-btn: rgba(43, 122, 120, 0.8);
+    --color-main-black: rgb(21, 61, 60);
+    --color-box-shadow1: 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
+    --border-size: 2px;
+    --color-background-main: #F5FBFB;
+    --color-box-shadow2: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 li {
@@ -13,13 +23,33 @@ li {
 
 .prev-post {
     margin: 10px 30px 10px 30px;
+    display: inline-block;
+}
+
+.prev-post--borderPop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: var(--border-size) solid var(--color-main);
+    transition: top, left, right, bottom, 100ms ease-in-out;
+}
+
+.prev-post--borderPop:hover::before,
+.prev-post--borderPop:focus::before {
+    top: calc(var(--border-size) * -2);
+    left: calc(var(--border-size) * -2);
+    right: calc(var(--border-size) * -2);
+    bottom: calc(var(--border-size) * -2);
 }
 
 .prev-post_container {
     height: 300px;
     width: 400px;
     background: #FFFFFF;
-    box-shadow: 0px 1px 3px 1px var(--color-box-shadow);
+    box-shadow: var(--color-box-shadow1);
     border-radius: 10px 10px 0px 0px;
     overflow: hidden;
     padding: 15px;

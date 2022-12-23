@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Fragment } from 'react';
 import PreviewPost from "./preview-post"
 import axios from "axios";
 // PHONG TODO
@@ -19,7 +20,8 @@ function Home() {
     }, [])
 
     return (
-        <div>
+        <Fragment>
+
             <h1>Home</h1>
             {Loading ?
                 <div>loading</div>
@@ -32,7 +34,7 @@ function Home() {
                 })
             }
 
-        </div>
+        </Fragment>
     );
 }
 
