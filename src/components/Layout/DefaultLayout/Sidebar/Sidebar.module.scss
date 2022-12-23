@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 .sidebar {
     width: 4%;
-    min-width: 4%;
+    min-width: 60px;
     height: auto;
     color: rgba(43, 122, 120, 1);
+    margin: 0rem 2rem 0rem 1rem;
+    font-family: 'Inter Tight', sans-serif;
     // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     // border-right: 1px solid rgba(0, 0, 0, 0.1);
     // filter: drop-shadow(0px -1px 4px rgba(0, 0, 0, 0.5));
@@ -19,8 +22,9 @@
         text-overflow: ellipsis;
     }
     & .page:hover {
-        background-color: #3f5159;
-        border-right: 5px #308f23 solid;
+        background-color: rgba(0, 0, 0, 5%);
+        border-radius: 10px;
+        // border-right: 5px #308f23 solid;
     }
 }
 .sidebar_open {
@@ -44,10 +48,12 @@
 .page {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 50px;
     width: 100%;
     padding: 10px 20px;
     text-align: left;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: normal;
     cursor: pointer;
-    
 }

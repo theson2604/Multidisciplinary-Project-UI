@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?400&family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
 :root {
-    --dark-color: #17252a
+    --color-dark: #17252a;
+    --color-main: rgba(43, 122, 120, 1);
+    --color-main2: rgb(21, 61, 60);
+    --color-box-shadow: rgba(0, 0, 0, 0.25);
 }
 
 li {
@@ -11,10 +16,10 @@ li {
 }
 
 .prev-post_container {
-    height: 250px;
+    height: 300px;
     width: 400px;
     background: #FFFFFF;
-    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 3px 1px var(--color-box-shadow);
     border-radius: 10px 10px 0px 0px;
     overflow: hidden;
     padding: 15px;
@@ -23,16 +28,19 @@ li {
 
 .prev-post_cTitle {
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--dark-color);
+    font-family: 'Inter Tight', sans-serif;
 }
 
 .prev-post_user {
     background: #FFFFFF;
     height: 70px;
     width: 400px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 4px var(--color-box-shadow);
     padding: 10px;
+    font-size: 1.2rem;
+    color: var(--color-dark);
 }
 
 .prev-post_cImage {
@@ -52,6 +60,7 @@ li {
     align-items: center;
     width: 330px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .prev-post_uStatus {

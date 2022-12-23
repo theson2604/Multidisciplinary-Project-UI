@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import allRoutes from './routes/index'
 import DefaultLayout from './components/Layout/DefaultLayout';
 import { Fragment } from 'react';
@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Routes> 
+        <Routes>
           {allRoutes.map((route, index) => {
             const Page = route.component
 
@@ -26,13 +26,13 @@ function App() {
                 key={index}
                 path={route.path}
                 element={
-                  
-                    <Layout>
-                      <Page/>
-                    </Layout>
-             
-                  }
-                
+
+                  <Layout>
+                    <Page />
+                  </Layout>
+
+                }
+
               />
             )
           })}

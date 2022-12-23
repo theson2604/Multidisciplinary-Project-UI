@@ -14,6 +14,10 @@ function PreviewPost({ previewInfo }) {
         console.log("Call API for this id " + previewInfo._id)
     }
 
+    const showUser = () => {
+        console.log("Call API for this user " + previewInfo.authorDetail.lname)
+    }
+
     const AuthorFullName =
         previewInfo.authorDetail.fname + " " + previewInfo.authorDetail.lname
 
@@ -38,11 +42,10 @@ function PreviewPost({ previewInfo }) {
     )
 
     return (
-        <div className='prev-post' onClick={showPost}>
-            <div className='prev-post_container'>
+        <div className='prev-post' >
+            <div className='prev-post_container' onClick={showPost}>
                 <span className='prev-post_cTitle'>
                     {PostTitle}
-                    <Icons5.IoOpenOutline />
                 </span>
                 <div className='pre-post_cThumbnail'>
                     <img
@@ -53,7 +56,7 @@ function PreviewPost({ previewInfo }) {
             </div>
             {/* User information part */}
             <div className='prev-post_user'>
-                <div className='prev-post_uInfo'>
+                <div className='prev-post_uInfo' onClick={showUser}>
                     <img
                         className='prev-post_uAvatar'
                         src={previewInfo.authorDetail.avatar}
