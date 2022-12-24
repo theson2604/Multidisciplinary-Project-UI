@@ -3,6 +3,7 @@ import Trending from "../pages/Trending/index";
 import Requesting from "../pages/Requesting/index";
 import Setting from "../pages/Setting/index";
 import Empty from "../pages/Empty/index";
+import Add from "../components/Add";
 
 const allRoutes = [
     // {path: 'unauthorized', component: Unauthorized, layout:'unauthorized'},
@@ -10,6 +11,7 @@ const allRoutes = [
     {path: 'trending', component: Trending},
     {path: 'requesting', component: Requesting},
     {path: 'setting', component: Setting},
+    {path: 'add', component: Add},
     {path: '*', component: Empty, layout:'empty'}
 ]
 
