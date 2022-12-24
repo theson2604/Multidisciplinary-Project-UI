@@ -1,8 +1,8 @@
 .wrapper {
     --search-border-radius: 88px;
-    --search-height: 38px;
+    --search-height: 42px;
     --top-spacer: 7px;
-    --button-size: 1.2rem;
+    --button-size: 1.4rem;
 
     width: 100%;
     height: var(--default-layout-header-height);
@@ -19,26 +19,19 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
-    font-size: 24px;
+    font-size: 34px;
     line-height: 29px;
     display: flex;
     align-items: center;
-
+    cursor: pointer;
     color: #17252A;
-
-    display: flex;
-    align-items: center;
     letter-spacing: 0.2px;
     text-transform: uppercase;
     padding-left: 30px;
 
 }
-
 .search {
-    width: 500px;
-}
-
-.search {
+    width: 600px;
     position: relative;
     display: flex;
     box-sizing: border-box;
@@ -86,7 +79,7 @@
     border-top-right-radius: var(--search-border-radius);
     border-bottom-right-radius: var(--search-border-radius);
     font-size: var(--button-size);
-    color: rgb(177, 175, 175);
+    color: rgba(43, 122, 120, 0.8);
 
     &:hover {
         cursor: pointer;
@@ -94,7 +87,7 @@
     }
 
     &:active {
-        background-color: rgba(236, 229, 229, 0.219);
+        background-color: rgba(43, 122, 120, 0.8);
     }
 }
 
