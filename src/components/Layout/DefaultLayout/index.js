@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import Header from './Header'
 import Sidebar from './Sidebar'
+import Buttons from './Button'
 import styles from './DefaultLayout.module.scss'
 
 function DefaultLayout({children}) {
@@ -9,6 +10,7 @@ function DefaultLayout({children}) {
             <Header/>
             <div className={clsx(styles.container)}>
                 <Sidebar/>
+                <Buttons/>
                 <div className={clsx(styles.content)}>
                     {children}
                 </div>

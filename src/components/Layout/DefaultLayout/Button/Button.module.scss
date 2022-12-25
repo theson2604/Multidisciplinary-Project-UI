@@ -1,0 +1,17 @@
+.button1{
+  position: absolute;
+  left: 90%;
+  top: 127px;
+  width: 65px;
+  height: 65px;
+}
+.button2{
+  position: absolute;
+  left: 90%;
+  width: 65px;
+  height: 65px;
+  top: 231px;
+}
+.button1:hover, .button2:hover{
+  opacity: 0.9;
+}
