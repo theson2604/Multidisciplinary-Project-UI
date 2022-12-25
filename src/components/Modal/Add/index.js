@@ -27,7 +27,7 @@ function Add({modal, setModal}) {
 
     const handleClose = () => {
         setTitle("")
-        setImages(images([]))
+        setImages([])
         setTag('')
         setDescrip("")
         setModal(false)
@@ -129,7 +129,8 @@ function Add({modal, setModal}) {
                         />
                     </Stack>
                     <div className={clsx(styles.modalButton)}>
-                        <button type="reset" onClick={handleClose}>Close</button>
+                        <button type="button" onClick={handleClose}>Close</button>
+                        {/* <input type='button' value='Close' onClick={handleClose}/> */}
                         <button type="submit">Create</button>
                     </div>
                 </Box>

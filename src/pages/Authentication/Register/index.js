@@ -8,7 +8,8 @@ import '../Login/login.scss'
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
-  const [name, setName] = useState('')
+  const [fname, setFname] = useState('')
+  const [lname, setLname] = useState('')
   const [avatar, setAvatar] = useState()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -17,10 +18,10 @@ function Register() {
   
   const handleSubmit = async (e) => {
     e.preventDefault()
-    let newuser = {name, username, password}
+    let newuser = {fname, lname, username, password}
     try {
         // eslint-disable-next-line
-        const response = await axios.post(`/register`, 
+        const response = await axios.post(`http://localhost:3000/users/signIn`, 
             JSON.stringify(newuser),
         )
         alert("Regitered successfully")
@@ -40,7 +41,8 @@ function Register() {
       <div className="formWrapper">
         <span className="title">Resigter</span>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Name" name='name' onChange={e => setName(e.target.value)} value={name} required/>
+          <input type="text" placeholder="First Name" name='fname' onChange={e => setFname(e.target.value)} value={fname} required/>
+          <input type="text" placeholder="Last Name" name='lname' onChange={e => setLname(e.target.value)} value={lname} required/>
           {/* <input type="text" placeholder="Picture" name='picture'/> */}
           <input type="text" placeholder="Username" name='username' onChange={e => setUsername(e.target.value)} value={username} required/>
           <input type="password" placeholder="Password" name='password' onChange={e => setPassword(e.target.value)} value={password} required/>

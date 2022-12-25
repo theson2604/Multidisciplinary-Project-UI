@@ -1,4 +1,4 @@
-import styles from './Add.module.scss'
+import styles from '../Add/Add.module.scss'
 import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
@@ -9,12 +9,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import ImageUploading from 'react-images-uploading';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 
 
 
-function Edit({modal, setModal, pid}) {
+function EditPost({modal, setModal, pid}) {
     const [title, setTitle] = useState('')
     const [images, setImages] = useState([]);
     const [tag, setTag] = useState('');
@@ -27,16 +27,11 @@ function Edit({modal, setModal, pid}) {
 
         const getPost = async (pid) => {
             try {
-                const response = await axiosPrivate.post(`/get-one-post`, 
-                JSON.stringify({"id": parseInt(pid)}),
-                {
-                    signal: controller.signal
-                })
-                // console.log(response.data)
-                setTitle(response.data.title)
-                setImages(response.data.images)
-                setDescrip(response.data.description)
-                setId(response.data.id)
+                const response = await axios.get(`http://localhost:3000/posts/${pid}`) 
+                setTitle(response.title)
+                setImages(response.img)
+                setDescrip(response.content)
+                setId(response._id)
             } catch (err) {
                 console.log(err)
                 // navigate('/', { state: { from: location }, replace: true})
@@ -59,7 +54,7 @@ function Edit({modal, setModal, pid}) {
 
     const handleClose = () => {
         setTitle("")
-        setImages(images([]))
+        setImages([])
         setTag('')
         setDescrip("")
         setModal(false)
@@ -171,4 +166,4 @@ function Edit({modal, setModal, pid}) {
     );
 }
 
-export default Edit;
+export default EditPost;

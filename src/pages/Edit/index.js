@@ -1,10 +1,12 @@
+import EditPost from "../../components/Modal/Edit";
 
 function Edit() {
 
     return (
-        <h1>
-            Edit
-        </h1>
+        <div>
+            <EditPost modal={true}/>
+            {/* <Add modal={true}/> */}
+        </div>
     )
 }
 
