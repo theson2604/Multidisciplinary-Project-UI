@@ -20,7 +20,6 @@ function App() {
             let Layout = Fragment
 
             if (!route.layout) Layout = DefaultLayout
-
             return (
               <Route
                 key={index}

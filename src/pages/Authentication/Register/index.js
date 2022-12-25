@@ -1,0 +1,89 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
+import ImageUploading from 'react-images-uploading';
+
+import '../Login/login.scss'
+import { useNavigate } from 'react-router-dom';
+
+function Register() {
+  const [name, setName] = useState('')
+  const [avatar, setAvatar] = useState()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    let newuser = {name, username, password}
+    try {
+        // eslint-disable-next-line
+        const response = await axios.post(`/register`, 
+            JSON.stringify(newuser),
+        )
+        alert("Regitered successfully")
+        navigate('/')
+    } catch (err) {
+        alert("failed to regis")
+    }
+  }
+
+  const onChangeImage = (imageList, addUpdateIndex) => {
+    console.log(imageList, addUpdateIndex);
+    setAvatar(imageList);
+  };
+
+  return (
+    <div className="formContainer">
+      <div className="formWrapper">
+        <span className="title">Resigter</span>
+        <form onSubmit={handleSubmit}>
+          <input type="text" placeholder="Name" name='name' onChange={e => setName(e.target.value)} value={name} required/>
+          {/* <input type="text" placeholder="Picture" name='picture'/> */}
+          <input type="text" placeholder="Username" name='username' onChange={e => setUsername(e.target.value)} value={username} required/>
+          <input type="password" placeholder="Password" name='password' onChange={e => setPassword(e.target.value)} value={password} required/>
+          <ImageUploading
+            multiple={false}
+            value={avatar}
+            onChange={onChangeImage}
+            dataURLKey="data_url"
+          >
+            {({
+            imageList,
+            onImageUpload,
+            onImageRemove,
+            dragProps,
+            }) => (
+            <div className="avatar">
+                Choose avatar
+                &nbsp;
+                <FontAwesomeIcon 
+                    style={{color: 'rgb(175, 175, 175)'}}
+                    icon={faImage}
+                    onClick={onImageUpload}
+                    {...dragProps}
+                />   
+                <div>
+                    {imageList.map((image, index) => (
+                    <div key={index} className="image-item">
+                        <img src={image['data_url']} alt="" width="100" />
+                        <button
+                          onClick={() => onImageRemove(index)} 
+                          style={{background:'transparent', border: 'none', color: 'rgb(175, 175, 175)'}}
+                        >x</button>
+                    </div>
+                    ))}
+                </div>
+            </div>
+            )}
+          </ImageUploading>
+          <button type='submit'>Regis</button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default Register;
