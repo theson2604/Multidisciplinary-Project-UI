@@ -1,0 +1,61 @@
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    border-bottom: 1px solid black;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalEle {
+    display: flex;
+    flex-direction: column;
+    
+    padding: 0.5rem 15%;
+    input {
+        height: 2rem;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        padding-right: 0;
+        background-color: #fefefe;
+        cursor: pointer;
+    }
+}
+
+.modalButton {
+    display: flex;
+    flex-direction: row-reverse;
+
+    margin: 20px 5% 0 0;
+
+    button {
+        Width: 90px;
+        Height: 35px;
+
+        background: rgba(43, 122, 120, 0.8);
+        border-radius: 8px;
+        margin: 0 0.5rem;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.icon {
+    position: relative;
+    top: -1.5rem;
+    left: 2.3rem;
+}
+
+.time {
+    width: 182px;
+}
