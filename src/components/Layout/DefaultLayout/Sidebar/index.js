@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
 import styles from './Sidebar.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +18,8 @@ function Sidebar() {
     const [isOpen, setIsOpen] = useState(false)
     // const location = useLocation()
     const [clicked, setClicked] = useState('')
+    // eslint-disable-next-line
+    const {auth, setAuth} = useAuth()
     const navigate = useNavigate()
 
     const handleTrigger = () => setIsOpen(!isOpen)
@@ -24,6 +27,10 @@ function Sidebar() {
     const handleClick = (route) => {
         setClicked(route)
         navigate(route)
+    }
+
+    const signOut = () => {
+        setAuth({})
     }
     
     return (
@@ -79,7 +86,7 @@ function Sidebar() {
                 <div 
                     
                     className={clsx(styles.page)}
-                    // onClick={signOut}
+                    onClick={signOut}
                 >
                     <FontAwesomeIcon icon={faRightFromBracket} />
                     <span>LOG OUT</span>
