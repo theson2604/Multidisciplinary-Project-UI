@@ -22,8 +22,7 @@ function Login(props) {
   
   useEffect(() =>{
     if (JSON.stringify(auth) !== '{}') 
-      // navigate('/home')
-      console.log('navi')
+      navigate('/setting')
   })
   
   useEffect(() => {
@@ -31,18 +30,17 @@ function Login(props) {
   }, [username, password])
 
   const handleSubmit = async(e) => {
-    console.log('test')
+    console.log('test:', username, password)
     e.preventDefault()
-    
+    const loginName = username
     const response = await axios.post('http://localhost:3000/users/login', 
-      JSON.stringify({username, password}),
+      {loginName, password}
     )
-    console.log(response)
     if (response !== null) {  
-      setAuth(response) 
+      setAuth(response.data) 
       setUsername('')
       setPassword('')
-      console.log('auth:' ,auth)
+      console.log(auth)
       // navigate(-1)
     }
     else {

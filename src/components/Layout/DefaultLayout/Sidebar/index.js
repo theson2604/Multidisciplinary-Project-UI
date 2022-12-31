@@ -18,7 +18,6 @@ function Sidebar() {
     const [isOpen, setIsOpen] = useState(false)
     // const location = useLocation()
     const [clicked, setClicked] = useState('')
-    // eslint-disable-next-line
     const {auth, setAuth} = useAuth()
     const navigate = useNavigate()
 
@@ -31,6 +30,7 @@ function Sidebar() {
 
     const signOut = () => {
         setAuth({})
+        console.log(auth)
     }
     
     return (
@@ -61,6 +61,7 @@ function Sidebar() {
                     <FontAwesomeIcon icon={faChartColumn} />
                     <span>TRENDING</span>
                 </div>
+                {(auth?.role === 'admin')?
                 <div 
                     style={{
                         background: (clicked==='/requesting')? 'rgba(0, 0, 0, 0.05)' : '',
@@ -71,7 +72,8 @@ function Sidebar() {
                 >
                     <FontAwesomeIcon icon={faCheckToSlot} />
                     <span>ADMININSTRATION</span>
-                </div>
+                </div>:<></>
+                }
                 <div 
                     style={{
                         background: (clicked==='/setting')? 'rgba(0, 0, 0, 0.05)' : '',
