@@ -116,6 +116,51 @@
     cursor: pointer;
 }
 
+.loginBtn{
+    display: flex;
+    flex-direction: row;
+    width: 80px;
+    height: 40px;
+    top: calc(50% - 40px/2);
+    align-items: center;
+    justify-content: center;
+    background: #3AAFA9;
+    border-radius: 8px;
+    border: none;
+    
+}
+
+.btnFont{
+    font-family:  'Inter', sans-serif;
+    font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 20px;
+color: white;
+}
+
+.btnFont2{
+    font-family:  'Inter', sans-serif;
+    font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 20px;
+color: #6E6D7A;
+}
+
+.signInBtn{
+    display: flex;
+    flex-direction: row;
+    width: 80px;
+    height: 40px;
+    top: calc(50% - 40px/2);
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 8px;
+    border: none;
+}
+
 .username {
     color: rgba(43, 122, 120, 1);
 }
