@@ -85,14 +85,12 @@ function Sidebar() {
                     <FontAwesomeIcon icon={faGear} />
                     <span>SETTING</span>
                 </div>
-                <div 
-                    
-                    className={clsx(styles.page)}
-                    onClick={signOut}
-                >
-                    <FontAwesomeIcon icon={faRightFromBracket} />
-                    <span>LOG OUT</span>
-                </div>
+                {(JSON.stringify(auth) !== '{}')?
+                    <div className={clsx(styles.page)} onClick={signOut}>
+                        <FontAwesomeIcon icon={faRightFromBracket} />
+                        <span>LOG OUT</span>
+                    </div>:<></>
+                }
             </div>
             
         </aside>
