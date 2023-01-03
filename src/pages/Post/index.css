@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?400&family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+:root {
+  --color-dark: #17252a;
+  --color-main: rgba(43, 122, 120, 1);
+  --color-main-btn: rgba(43, 122, 120, 0.8);
+  --color-main-black: rgb(21, 61, 60);
+  --color-box-shadow1: 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
+  --border-size: 2px;
+  --color-background-main: #F5FBFB;
+  --color-box-shadow2: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.post_layout{
+  width: 70%;
+  margin: 70px 30px 10px 10%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #F5FFFA;
+  box-shadow: 4px 3px 8px 1px #969696
+}
+.title {
+  font-size: 50px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--color-main-black);
+  font-family: 'Inter Tight', sans-serif;
+  cursor: pointer;
+  margin: 20px;
+}
+.img{
+  display: flex;
+  justify-content: center;
+}
+.img img{
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 5px;
+    width: auto;
+    height: auto;
+}
+.content{
+  text-align: justify;
+  margin: 10px 20%;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+}
+.like, .view{
+  margin-left: 75%;
+}
+.icon{
+  font-size: 15px;
+  border: none;
+  color:black;
+  background-color: white;
+  text-align: center;
+}
+.likes{
+  margin-top: 0;
+  margin-left: 20%;
+  font-weight: 1000;
+  font-size: 15px;
+}
+.report{
+  margin-bottom: 10px;
+  margin-left: 95%;
+  background-color: white;
+  border: none;
+}
+.like-inpost{
+  margin-left: 20%;
+  font-size:25px;
+  background-color: white;
+  border:none
+}
