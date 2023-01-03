@@ -11,7 +11,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    position: fixed;
+    z-index: 10;
+    background-color: white;
 }
 
 .name {
@@ -30,6 +32,15 @@
     padding-left: 30px;
 
 }
+
+.logo{
+    width: 200px;
+    margin-left: 30px;
+}
+.logo:hover{
+    cursor: pointer;
+}
+
 .search {
     width: 600px;
     position: relative;
@@ -129,7 +140,26 @@
     border: none;
     
 }
+.loginBtn:hover,
+.signInBtn:hover{
+    cursor: pointer;
+}
 
+.hoverBigBlur {
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.hoverBigBlur:hover,
+.hoverBigBlur:focus,
+.hoverBigBlur:active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    border-radius: 10px;
+}
 .btnFont{
     font-family:  'Inter', sans-serif;
     font-style: normal;

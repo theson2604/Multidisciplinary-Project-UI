@@ -24,7 +24,7 @@ function Home() {
     return (
         <Fragment>
 
-            <h1>Home</h1>
+            <h2 className="tabTitle">Home</h2>
             {Loading ?
                 <LoadingAnimation />
                 :
