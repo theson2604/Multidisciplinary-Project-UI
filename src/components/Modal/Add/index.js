@@ -35,12 +35,14 @@ function Add({modal, setModal}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let post = {title, images, tag, description}
+        let post = {title, content: description, img: images, tag: [tag]}
+        console.log(post)
         try {
             // eslint-disable-next-line
-            const response = await axios.post(`/posts/add`, 
-                JSON.stringify(post),
+            const response = await axios.post(`http://localhost:3000/posts/post`, 
+                post
             )
+            console.log(response)
             alert("Added successfully")
             handleClose()
         } catch (err) {

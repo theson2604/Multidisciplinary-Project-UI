@@ -22,7 +22,7 @@ function Register() {
     try {
         // eslint-disable-next-line
         const response = await axios.post(`http://localhost:3000/users/signIn`, 
-            JSON.stringify(newuser),
+            newuser
         )
         alert("Regitered successfully")
         navigate('/')

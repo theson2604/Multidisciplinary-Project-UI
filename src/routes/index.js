@@ -17,7 +17,7 @@ const allRoutes = [
     {path: 'requesting', component: Administration},
     {path: 'setting', component: Setting},
     { path: 'post/*', component: Post },
-    {path: 'edit', component: Edit},
+    // {path: 'edit', component: Edit},
     {path: '*', component: Empty, layout:'empty'}
 
 ]

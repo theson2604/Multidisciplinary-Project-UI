@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import useAuth from '../../../../hooks/useAuth';
 import styles from './Sidebar.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,9 +29,15 @@ function Sidebar() {
         navigate(route)
     }
 
-    const signOut = () => {
-        setAuth({})
-        console.log(auth)
+    const signOut = async (e) => {
+        e.preventDefault()
+        const response = await axios.get('http://localhost:3000/users/logout')
+        console.log(response, 'logout')
+        if (response?.data === true) {  
+            setAuth({}) 
+            alert('logouted')
+        }
+        else console.log('failed')
     }
     
     return (

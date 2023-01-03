@@ -3,17 +3,23 @@ import clsx from 'clsx'
 import createButton from './create.png';
 import post_manager from './post_manager.png';
 import { useNavigate } from 'react-router-dom';
-
+import useAuth from '../../../../hooks/useAuth';
 
 function Buttons( {setModal} ) {
-    // const [isOpen, setIsOpen] = useState(false)
-    // const location = useLocation()
-    // const [clicked, setClicked] = useState('')
-    const navigate = useNavigate()
+  // eslint-disable-next-line
+  const {auth, setAuth} = useAuth()
+  const navigate = useNavigate()
+
+  const handleClick = (type) => {
+    if (JSON.stringify(auth) === '{}') navigate('/')
+    else if (type === 'create') setModal(true)
+    else navigate('/edit')
+  }  
+
   return (
     <div className={clsx(styles.buttons)}>
-      <input type="image" src={createButton} alt='Button' className={clsx(styles.button1)} onClick={() => setModal(true)}/>
-      <input type="image" src={post_manager} alt='Button' className={clsx(styles.button2)} onClick={() => navigate('/edit')}/>
+      <input type="image" src={createButton} alt='Button' className={clsx(styles.button1)} onClick={() => handleClick('create')}/>
+      <input type="image" src={post_manager} alt='Button' className={clsx(styles.button2)} onClick={() => handleClick('')}/>
     </div>
   )
 }

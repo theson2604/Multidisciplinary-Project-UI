@@ -1,4 +1,169 @@
-.edit-button {
+.box-admin {
+    width: 480px;
+    height: 540px;
+    background: #FFFFFF;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0.5px 2px rgba(0, 0, 0, 0.5);
+    display: inline-table;
+    margin: 2rem 1.6rem 1.6rem 1.6rem;
+}
+
+.prev-post-admin {
+    width: 95%;
+    max-height: 200px;
+    background-color: aqua;
+    background: var(--color-background-main);
+    box-shadow: var(--color-box-shadow2);
+    border-radius: 3px;
+    margin: 10px;
+}
+
+.prev-post-admin--hidden {
+    visibility: hidden;
+}
+
+.prev-post-admin_container {
+    font-size: 20px;
+    text-align: justify;
+    font-weight: 500;
+    color: var(--color-main-black);
+    font-family: 'Inter Tight', sans-serif;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+}
+
+.box-name {
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+    margin-top: 5px;
+    padding-left: 15px;
+    cursor: pointer;
+    color: var(--color-main);
+    text-transform: uppercase;
+
+}
+
+.user-post {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    width: 280px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.administration-container {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.btnApprove {
+    font-family: 'Inter Tight', sans-serif;
+    width: 74px;
+    height: 30px;
+    background: var(--color-main-btn);
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-size: small;
+    font-weight: 400;
+    margin: 5px;
+    cursor: pointer;
+
+}
+
+.btnDecline {
+    font-family: 'Inter Tight', sans-serif;
+    width: 74px;
+    height: 30px;
+    color: var(--color-main-btn);
+    border-radius: 50px;
+    border: none;
+    background: white;
+    font-size: small;
+    margin: 5px;
+    font-weight: 400;
+    cursor: pointer;
+
+}
+
+.user-and-btn-box {
+    display: flex;
+    padding: 5px;
+}
+
+/* Make color here :> */
+/* Big Blur Transition */
+
+.hoverBigBlur {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.hoverBigBlur:hover,
+.hoverBigBlur:focus,
+.hoverBigBlur:active {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    border-radius: 10px;
+}
+
+/* Loading */
+.loader {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.loader::before {
+    content: '';
     position: absolute;
-    right: 10%;
+    width: 5px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: var(--color-main-black);
+    animation: blinkCursor 0.8s steps(3) infinite;
+}
+
+@keyframes blinkCursor {
+
+    0%,
+    75% {
+        opacity: 1;
+    }
+
+    76%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.loader-h1 {
+    position: relative;
+    color: var(--color-main);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    animation: typing 5s steps(10) infinite;
+    overflow: hidden;
+    margin: 5px;
+}
+
+@keyframes typing {
+
+    0%,
+    70%,
+    100% {
+        width: 0;
+    }
+
+    30%,
+    60% {
+        width: 210px;
+    }
 }
