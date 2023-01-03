@@ -6,15 +6,15 @@ import Add from '../../Modal/Add/index'
 import styles from './DefaultLayout.module.scss'
 import { useState } from 'react'
 
-function DefaultLayout({children}) {
+function DefaultLayout({ children }) {
     const [modal, setModal] = useState(false)
     return (
         <div className={clsx(styles.wrapper)}>
-            <Header/>
+            <Header />
             <div className={clsx(styles.container)}>
-                <Sidebar/>
-                <Buttons setModal={setModal}/>
-                <Add modal={modal} setModal={setModal}/>
+                <Sidebar />
+                <Buttons setModal={setModal} />
+                <Add modal={modal} setModal={setModal} />
                 <div className={clsx(styles.content)}>
                     {children}
                 </div>

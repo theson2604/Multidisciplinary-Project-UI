@@ -14,17 +14,18 @@
 
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.post_layout{
+.post_layout {
   width: 70%;
   margin: 70px 30px 10px 10%;
   background-color: white;
   border-radius: 10px;
   border: 1px solid #F5FFFA;
-  box-shadow: 4px 3px 8px 1px #969696
+  box-shadow: 0px 0px 2px 0px #969696
 }
+
 .title {
   font-size: 50px;
   text-align: center;
@@ -34,48 +35,57 @@
   cursor: pointer;
   margin: 20px;
 }
-.img{
+
+.img {
   display: flex;
   justify-content: center;
 }
-.img img{
-    max-width: 100%;
-    max-height: 100%;
-    margin-top: 5px;
-    width: auto;
-    height: auto;
+
+.img img {
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 5px;
+  width: auto;
+  height: auto;
 }
-.content{
+
+.content {
   text-align: justify;
   margin: 10px 20%;
   font-family: 'Inter Tight', sans-serif;
   font-weight: 500;
 }
-.like, .view{
+
+.like,
+.view {
   margin-left: 75%;
 }
-.icon{
+
+.icon {
   font-size: 15px;
   border: none;
-  color:black;
+  color: black;
   background-color: white;
   text-align: center;
 }
-.likes{
+
+.likes {
   margin-top: 0;
   margin-left: 20%;
   font-weight: 1000;
   font-size: 15px;
 }
-.report{
+
+.report {
   margin-bottom: 10px;
-  margin-left: 95%;
+  margin-left: 92%;
   background-color: white;
   border: none;
 }
-.like-inpost{
+
+.like-inpost {
   margin-left: 20%;
-  font-size:25px;
+  font-size: 25px;
   background-color: white;
-  border:none
+  border: none
 }

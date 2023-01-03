@@ -1,0 +1,28 @@
+.tabTitle {
+    display: flex;
+    background-color: #f5fbfb;
+    font-weight: 400;
+    font-family: 'Inter Tight', sans-serif;
+    color: var(--color-main-black);
+    padding-left: 10px;
+    border-radius: 5px;
+    border-right: 200px;
+
+}
+
+.title_uIcon {
+    margin-left: 10px;
+    font-size: 20px;
+    color: #3aafa9;
+}
+
+.wrapper {
+    display: flex;
+    max-width: 1000px;
+    overflow-x: auto;
+}
+
+.snap-inline {
+    scroll-snap-type: inline mandatory;
+
+}

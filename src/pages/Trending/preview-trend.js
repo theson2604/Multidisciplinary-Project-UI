@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import * as Icons5 from "react-icons/io5";
 import { Navigate, useNavigate } from 'react-router-dom';
-import axios from "axios";
 import "./index.css"
+import axios from "axios";
 
 function PreviewPost({ previewInfo }) {
-
+    // still using css from Home 
     const navigate = useNavigate()
     const [Liked, setLiked] = useState(previewInfo.liked)
 
