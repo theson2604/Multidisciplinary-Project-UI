@@ -36,7 +36,7 @@ function Login(props) {
     const response = await axios.post('http://localhost:3000/users/login', 
       {loginName, password}
     )
-    if (response !== null) {  
+    if (response?.data !== null) {  
       setAuth(response.data) 
       setUsername('')
       setPassword('')

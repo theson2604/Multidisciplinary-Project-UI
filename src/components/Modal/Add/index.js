@@ -35,7 +35,7 @@ function Add({modal, setModal}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let post = {title, content: description, img: images, tag: [tag]}
+        let post = {title, content: description, img: [images[0].data_url], tag: [tag]}
         console.log(post)
         try {
             // eslint-disable-next-line
