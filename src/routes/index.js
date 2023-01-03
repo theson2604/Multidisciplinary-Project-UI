@@ -16,8 +16,13 @@ const allRoutes = [
     {path: 'trending', component: Trending},
     {path: 'requesting', component: Administration},
     {path: 'setting', component: Setting},
+<<<<<<< HEAD
     { path: 'post/*', component: Post },
     // {path: 'edit', component: Edit},
+=======
+    { path: 'post/:id', component: Post },
+    {path: 'edit', component: Edit},
+>>>>>>> c9b27e4dc27616f27a3dbd5420a43fa4001f91aa
     {path: '*', component: Empty, layout:'empty'}
 
 ]
