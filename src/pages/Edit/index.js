@@ -28,9 +28,6 @@ function Administration() {
     return (
         <Fragment>
             <EditPost modal={modal} setModal={setModal} pid={pid} />
-            <h1>
-                My Posts
-            </h1>
             <div className="frame">
                 {Loading ?
                     <LoadingAnimation />

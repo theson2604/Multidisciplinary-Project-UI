@@ -8,7 +8,7 @@ function PreviewBox({ Data, setModal, setPid }) {
         <Fragment>
             <div className="box-admin">
                 <h1 className='box-name' >
-                    Posts
+                    My Posts
                 </h1>
                 {
                     Data.map((prevInfo) => {

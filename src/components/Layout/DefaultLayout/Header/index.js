@@ -14,7 +14,7 @@ function Header() {
     const navigate = useNavigate()
 
     const LoginUI = () => {
-        navigate("/")
+        navigate("/login")
     }
 
     const SignInUI = () => {
@@ -27,6 +27,7 @@ function Header() {
             // className={clsx(styles.name)}
             >
                 <img src={logo}
+                    alt=''
                     className={clsx(styles.logo)
                     }
                 />
