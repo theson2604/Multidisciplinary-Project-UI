@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import "./index.css"
 import * as Icons5 from "react-icons/io5";
 import report from "./Vector.png"
+import ImageSlider from './image'
 
 function ViewPost({ post }){
     const [Liked, setLiked] = useState(post.liked)
@@ -30,36 +31,34 @@ function ViewPost({ post }){
       setReported(!Reported);
       post.Reported = true;
     }
-    
     return (
       <div className='post_layout' >
         <div className="title"> {post.title} </div>
-          <div className="img"> <img src={post.img} /> </div>
-          <button className='like-inpost' onClick={HandleLiked}>{ViewIcon}</button>
-            <p className='likes'>{post.like} likes</p>
-              <div className="content">{post.content} </div>
-              <div className="view">
-              <button className="icon">
-                <Icons5.IoEyeSharp className='prev-post_uIcon'
-                  style={{ color: "#0000ffa6" }}
-                  />
-                  {post.view}
-              </button>
+              <div className='imageSlider'>
+                <ImageSlider 
+                    slides={post.img}
+                />
               </div>
-              <div className="like">
-              <button
-                className='icon'
-                onClick={HandleLiked}
-              >
-                {ViewIcon}
-                {post.like}
-              </button>
-              </div>
+          <div className='icon'>
+            <button className='like-inpost' onClick={HandleLiked}>{ViewIcon}</button>
+            <button className="like-inpost">
+                  <Icons5.IoChatbubbleEllipsesOutline className='prev-post_uIcon'/>
+            </button>  
+            <button className="like-inpost">
+                  <Icons5.IoPaperPlaneOutline className='prev-post_uIcon'/>
+            </button>  
+          </div>
+
+          <p className='likes'>{post.like} likes</p>
+          
+            <div className="content">{post.content} </div>
+            
                 <button className='report' onClick={HandleReported}>
                   <input type="image" src={report} alt='Report'/>
                 </button>
-    </div>  
+    </div>
       )
+      
 }
 
 export default ViewPost
