@@ -7,7 +7,7 @@ import { Fragment } from "react";
 import axios from "axios";
 
 function PreviewBox({ title, Data }) {
-
+    console.log(Data)
     const request = "REQUEST"
     const report = "REPORT"
 

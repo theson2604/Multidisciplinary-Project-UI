@@ -12,8 +12,6 @@ import ImageUploading from 'react-images-uploading';
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
-
-
 function EditPost({modal, setModal, pid}) {
     const [title, setTitle] = useState('')
     const [images, setImages] = useState([]);
@@ -27,7 +25,9 @@ function EditPost({modal, setModal, pid}) {
 
         const getPost = async (pid) => {
             try {
-                const response = await axios.get(`http://localhost:3000/posts/${pid}`) 
+                const response = await axios.get(`http://localhost:3000/posts/${pid}`,
+                    {withCredentials: true}
+                ) 
                 setTitle(response.title)
                 setImages(response.img)
                 setDescrip(response.content)
@@ -65,8 +65,9 @@ function EditPost({modal, setModal, pid}) {
         let post = {id, title, images, tag, description}
         try {
             // eslint-disable-next-line
-            const response = await axios.post(`/posts/update`, 
+            const response = await axios.post(`http://localhost:3000/posts/post`, 
                 JSON.stringify(post),
+                {withCredentials: true}
             )
             alert("Updated successfully")
             handleClose()
@@ -77,7 +78,7 @@ function EditPost({modal, setModal, pid}) {
     return ( 
         <>
         <Dialog open={modal} onClose={handleClose}>
-            <DialogTitle className={clsx(styles.title)} style={{marginBottom: '0px'}}>Create Post</DialogTitle>
+            <DialogTitle className={clsx(styles.title)} style={{marginBottom: '0px'}}>Update Post</DialogTitle>
             <DialogContent>
                 <Box
                     noValidate

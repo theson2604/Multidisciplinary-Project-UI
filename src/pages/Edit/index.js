@@ -1,17 +1,22 @@
-import { Fragment } from "react";
+import { createContext, Fragment } from "react";
 import "./index.css"
 import PreviewBox from "./preview-box"
 import axios from "axios";
 import { useEffect, useState } from "react";
 import LoadingAnimation from "../Home/loading";
+import EditPost from "../../components/Modal/Edit";
 
 function Administration() {
 
     const [Loading, setLoading] = useState(true)
     const [Data, setData] = useState([])
+    const [modal, setModal] = useState(false)
+    const [pid, setPid] = useState()
 
     const fetchData = async () => {
-        const response = await axios.get("http://localhost:3000/admin/preview")
+        const response = await axios.get("http://localhost:3000/posts/myPost", 
+            {withCredentials: true}
+        )
         setData(response)
         setLoading(false)
     }
@@ -22,24 +27,15 @@ function Administration() {
 
     return (
         <Fragment>
+            <EditPost modal={modal} setModal={setModal} pid={pid} />
             <h1>
-                Administration
+                My Posts
             </h1>
             <div className="frame">
                 {Loading ?
                     <LoadingAnimation />
                     :
-                    <Fragment>
-                        <PreviewBox
-                            title={0}
-                            Data={Data.data}
-                        />
-
-                        <PreviewBox
-                            title={1}
-                            Data={Data.data}
-                        />
-                    </Fragment>
+                    <PreviewBox Data={Data.data} setModal={setModal} setPid={setPid} />
                 }
             </div>
         </Fragment>

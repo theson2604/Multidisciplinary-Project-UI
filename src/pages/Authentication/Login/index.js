@@ -34,14 +34,13 @@ function Login(props) {
     e.preventDefault()
     const loginName = username
     const response = await axios.post('http://localhost:3000/users/login',
-      { loginName, password }
+      { loginName, password },
+      {withCredentials: true}
     )
     if (response?.data !== null) {  
       setAuth(response.data) 
       setUsername('')
       setPassword('')
-      console.log(auth)
-      console.log(response)
       // navigate(-1)
     }
     else {

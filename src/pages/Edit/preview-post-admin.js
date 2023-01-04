@@ -1,21 +1,23 @@
 import "./index.css"
-import Button from "./button"
-import { Navigate, useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import axios from 'axios'
 
-function PreviewPostAdmin({ previewInfo }) {
-
+function PreviewPostAdmin({ previewInfo, setModal, setPid }) {
     const [HidenPost, setHidenPost] = useState(false)
-
-    const navigate = useNavigate()
 
     const showUser = () => {
         console.log("Call user for " + previewInfo.authorDetail.lname)
     }
 
     const showPost = () => {
-        navigate("/post/" + previewInfo._id)
-        console.log("Call API for this post: " + previewInfo._id)
+        setPid(previewInfo._id)
+        setModal(true)
+        // console.log("Call API for this post: " + previewInfo._id)
+    }
+    
+    const deletePost = () => {
+        const response = axios.delete(`http://localhost:3000/posts/${previewInfo._id}`, {withCredentials: true})
+        setHidenPost(true)
     }
 
     const AuthorFullName =
@@ -30,7 +32,6 @@ function PreviewPostAdmin({ previewInfo }) {
             ${HidenPost ? "prev-post-admin--hidden" : ""}`
             }>
             <div className='prev-post-admin_container'
-                onClick={showPost}
             >
                 {PostTitle}
             </div>
@@ -46,16 +47,18 @@ function PreviewPostAdmin({ previewInfo }) {
                     {AuthorFullName}
                 </div>
                 <div className='administration-container'>
-                    <Button
-                        title={0}
-                        postId={previewInfo._id}
-                        setHidenPost={setHidenPost}
-                    />
-                    <Button
-                        title={1}
-                        postId={previewInfo._id}
-                        setHidenPost={setHidenPost}
-                    />
+                    <button
+                        className="btnApprove hoverBigBlur"
+                        onClick={showPost}
+                    >
+                        Edit
+                    </button>
+                    <button
+                        className="btnDecline hoverBigBlur"
+                        onClick={deletePost}
+                    >
+                        Delete
+                    </button>
                 </div>
             </div>
         </div>

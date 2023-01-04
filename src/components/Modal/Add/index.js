@@ -40,7 +40,8 @@ function Add({modal, setModal}) {
         try {
             // eslint-disable-next-line
             const response = await axios.post(`http://localhost:3000/posts/post`, 
-                post
+                post,
+                {withCredentials: true}
             )
             console.log(response)
             alert("Added successfully")
