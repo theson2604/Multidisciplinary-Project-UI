@@ -26,12 +26,16 @@ function EditPost({modal, setModal, pid}) {
         const getPost = async (pid) => {
             try {
                 const response = await axios.get(`http://localhost:3000/posts/${pid}`,
-                    {withCredentials: true}
+                {withCredentials: true},
+                {
+                    signal: controller.signal
+                }
                 ) 
-                setTitle(response.title)
-                setImages(response.img)
-                setDescrip(response.content)
-                setId(response._id)
+                console.log(response.data)
+                setTitle(response.data.title)
+                setImages(response.data.img)
+                setDescrip(response.data.content)
+                setId(response.data._id)
             } catch (err) {
                 console.log(err)
                 // navigate('/', { state: { from: location }, replace: true})
@@ -62,11 +66,11 @@ function EditPost({modal, setModal, pid}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let post = {id, title, images, tag, description}
+        let post = {title, content: description, img: [images[0].data_url], tag: [tag]}
         try {
             // eslint-disable-next-line
-            const response = await axios.post(`http://localhost:3000/posts/post`, 
-                JSON.stringify(post),
+            const response = await axios.put(`http://localhost:3000/posts/${id}`,
+                post,
                 {withCredentials: true}
             )
             alert("Updated successfully")
