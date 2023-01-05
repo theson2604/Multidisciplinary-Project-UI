@@ -35,9 +35,9 @@ function Add({modal, setModal}) {
 
     const handleImage = () => {
         let img = []
-        images.map(image => {
-            img.push(image.data_url)
-        })
+        for (let i=0; i<images.length; i++) {
+            img.push(images[i].data_url)
+        }
         return img
     }
 
@@ -61,6 +61,7 @@ function Add({modal, setModal}) {
         e.preventDefault()
         const image = handleImage()
         const tags = handleTag()
+        console.log(image)
         let post = {title, content: description, img: image, tag: tags}
         try {
             // eslint-disable-next-line
