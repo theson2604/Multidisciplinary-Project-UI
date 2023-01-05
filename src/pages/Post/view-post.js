@@ -5,17 +5,11 @@ import * as Icons5 from "react-icons/io5";
 import report from "./Vector.png"
 import ImageSlider from './image'
 
+
 function ViewPost({ post }){
     const [Liked, setLiked] = useState(post.liked)
     const HandleLiked = () => {
-        if(post.liked = true)
         setLiked(!Liked)
-        else if(post.liked = false)
-        {
-          setLiked(!Liked);
-          post.like++;
-          post.liked = true;
-        }
     }
     const ViewIcon = !Liked ?
     <Icons5.IoHeartOutline
@@ -25,7 +19,6 @@ function ViewPost({ post }){
         className='prev-post_uIcon'
         style={{ color: "red" }}
     />
-
     const [Reported, setReported] = useState(post.Reported);
     const HandleReported = () => {
       setReported(!Reported);
@@ -49,7 +42,7 @@ function ViewPost({ post }){
             </button>  
           </div>
 
-          <p className='likes'>{post.like} likes</p>
+          <p className='likes'>{!Liked ? post.like  : post.like + 1} likes</p>
           
             <div className="content">{post.content} </div>
             
