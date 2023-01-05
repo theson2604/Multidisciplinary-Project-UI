@@ -91,6 +91,7 @@ function Add({modal, setModal}) {
                             id="outlined-basic" 
                             label="Title" 
                             variant="outlined" 
+                            required={true}
                             onChange= {e => setTitle(e.target.value)}
                             defaultValue={title}
                         />
@@ -100,6 +101,7 @@ function Add({modal, setModal}) {
                             <ImageUploading
                                 multiple
                                 value={images}
+                                required={true}
                                 onChange={onChange}
                                 dataURLKey="data_url"
                             >
@@ -141,6 +143,7 @@ function Add({modal, setModal}) {
                             id="outlined-basic" 
                             label="Tag" 
                             variant="outlined" 
+                            required={true}
                             placeholder='each tag start with # and separated by a space'
                             onChange= {e => setTag(e.target.value)}
                             defaultValue={tag}
@@ -153,6 +156,7 @@ function Add({modal, setModal}) {
                             label="Mô tả" 
                             variant="outlined" 
                             onChange= {e => setDescrip(e.target.value)}
+                            required={true}
                             defaultValue={description}
                         />
                     </Stack>
