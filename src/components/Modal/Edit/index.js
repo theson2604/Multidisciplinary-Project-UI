@@ -19,6 +19,18 @@ function EditPost({modal, setModal, pid}) {
     const [description, setDescrip] = useState('')
     const [id, setId] = useState(-1)
 
+    const getImage = (imgs = []) => {
+        let img = []
+        for (let i=0; i<imgs.length; i++) {
+            const new_img = {
+                data_url: imgs[i],
+                file: {}
+            }
+            img.push(new_img)
+        }
+        return img
+    }
+
     const getTag = (tags=[]) => {
         let tag = ''
         for (let i=0; i<tags.length; i++) {
@@ -42,7 +54,10 @@ function EditPost({modal, setModal, pid}) {
                 ) 
                 console.log(response.data)
                 setTitle(response.data.title)
-                setImages(response.data.img)
+                const new_image = getImage(response.data.img)
+                setImages(new_image)
+                const new_tag = getTag(response.data.tag)
+                setTag(new_tag)
                 setDescrip(response.data.content)
                 setId(response.data._id)
             } catch (err) {
@@ -64,6 +79,14 @@ function EditPost({modal, setModal, pid}) {
         console.log(imageList, addUpdateIndex);
         setImages(imageList);
     };
+
+    const handleImage = () => {
+        let img = []
+        for (let i=0; i<images.length; i++) {
+            img.push(images[i].data_url)
+        }
+        return img
+    }
 
     const handleTag = () => {
         let tags = []
@@ -91,7 +114,9 @@ function EditPost({modal, setModal, pid}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let post = {title, content: description, img: [images[0].data_url], tag: handleTag()}
+        const image = handleImage()
+        const tags = handleTag()
+        let post = {title, content: description, img: image, tag: tags}
         try {
             // eslint-disable-next-line
             const response = await axios.put(`http://localhost:3000/posts/${id}`,

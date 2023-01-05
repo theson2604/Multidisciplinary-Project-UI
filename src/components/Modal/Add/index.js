@@ -61,7 +61,6 @@ function Add({modal, setModal}) {
         e.preventDefault()
         const image = handleImage()
         const tags = handleTag()
-        console.log(image)
         let post = {title, content: description, img: image, tag: tags}
         try {
             // eslint-disable-next-line
@@ -75,6 +74,9 @@ function Add({modal, setModal}) {
             alert("failed to add")
         }
     }
+    console.log(images)
+
+
     return ( 
         <>
         <Dialog open={modal} onClose={handleClose}>
