@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Fragment } from 'react';
-import PreviewTrend from "./preview-trend"
+import PreviewTrend from "../Home/preview-post"
 import axios from "axios";
 import LoadingAnimation from '../Home/loading';
 import * as Icons5 from "react-icons/io5";

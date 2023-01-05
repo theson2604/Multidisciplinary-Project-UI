@@ -3,7 +3,6 @@ import { Fragment } from 'react';
 import PreviewPost from "./preview-post"
 import axios from "axios";
 import LoadingAnimation from './loading';
-
 // PHONG TODO
 function Home() {
 

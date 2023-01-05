@@ -3,14 +3,18 @@ import * as Icons5 from "react-icons/io5";
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "./index.css"
+import useAuth from './../../hooks/useAuth';
 
 function PreviewPost({ previewInfo }) {
+    const { auth, setAuth } = useAuth()
 
     const navigate = useNavigate()
     const [Liked, setLiked] = useState(previewInfo.liked)
     const [likeNumber, setLikeNumber] = useState(previewInfo.like)
 
     const HandleLiked = async () => {
+        if (JSON.stringify(auth) === '{}') navigate('/login')
+
         const response = await axios.get(`http://localhost:3000/posts/like?${previewInfo._id}`, { withCredentials: true })
 
         if (Liked === false) {
