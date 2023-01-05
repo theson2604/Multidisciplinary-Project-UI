@@ -11,7 +11,7 @@ function Administration() {
     const [Data, setData] = useState([])
 
     const fetchData = async () => {
-        const response = await axios.get("http://localhost:3000/admin/preview", {withCredentials: true})
+        const response = await axios.get("http://localhost:3000/admin/preview", { withCredentials: true })
         setData(response)
         setLoading(false)
     }

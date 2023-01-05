@@ -10,7 +10,7 @@ function PreviewPost({ previewInfo }) {
     const [Liked, setLiked] = useState(previewInfo.liked)
 
     const HandleLiked = async () => {
-        const response = await axios.get(`http://localhost:3000/posts/like?${previewInfo._id}`)
+        const response = await axios.get(`http://localhost:3000/posts/like?${previewInfo._id}`, { withCredentials: true })
         setLiked(response)
     }
 

@@ -8,10 +8,20 @@ function PreviewPost({ previewInfo }) {
 
     const navigate = useNavigate()
     const [Liked, setLiked] = useState(previewInfo.liked)
+    const [likeNumber, setLikeNumber] = useState(previewInfo.like)
 
     const HandleLiked = async () => {
-        const response = await axios.get(`http://localhost:3000/posts/like?${previewInfo._id}`)
-        setLiked(response)
+        const response = await axios.get(`http://localhost:3000/posts/like?${previewInfo._id}`, { withCredentials: true })
+
+        if (Liked === false) {
+            setLikeNumber(likeNumber + 1)
+        }
+        else {
+
+            setLikeNumber(likeNumber - 1)
+        }
+
+        setLiked(!Liked)
     }
 
     const showPost = () => {
@@ -37,14 +47,6 @@ function PreviewPost({ previewInfo }) {
             className='prev-post_uIcon'
             style={{ color: "red" }}
         />
-
-    useEffect(
-        () => {
-            // call API
-            console.log("User click on liked " + previewInfo.liked)
-        },
-        [Liked]
-    )
 
     return (
         <div className='prev-post hoverBigBlur' >
@@ -82,7 +84,7 @@ function PreviewPost({ previewInfo }) {
                         onClick={HandleLiked}
                     >
                         {ViewIcon}
-                        {previewInfo.like}
+                        {likeNumber}
                     </button>
                 </div>
             </div>
