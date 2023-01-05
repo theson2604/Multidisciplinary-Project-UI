@@ -27,7 +27,7 @@ function Home() {
             {Loading ?
                 <LoadingAnimation />
                 :
-                Data.data.map((prevInfo) => {
+                Data.data.slice(0).reverse().map((prevInfo) => {
                     return <PreviewPost
                         key={prevInfo._id}
                         previewInfo={prevInfo}
