@@ -58,7 +58,7 @@ function ViewPost({ post, id }) {
 
       <p className='likes'>{post.like} likes</p>
 
-      <div className="content">{post.content} </div>
+      <div className="content" >{post.content} </div>
 
       <button className='report' onClick={HandleReported}>
         <input type="image" src={report} alt='Report' />

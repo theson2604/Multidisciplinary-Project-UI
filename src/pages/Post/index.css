@@ -54,6 +54,7 @@
   margin: 10px 20%;
   font-family: 'Inter Tight', sans-serif;
   font-weight: 500;
+  white-space: pre-line;
 }
 
 .like,
@@ -97,8 +98,9 @@
 .like-inpost:hover {
   opacity: 0.5;
 }
-.report:hover{
-  
+
+.report:hover {
+
   background-color: yellow;
   border-radius: 25px;
 }
@@ -125,14 +127,14 @@
   z-index: 10;
   cursor: pointer;
   user-select: none;
-  top:50%;
-  right:20%;
+  top: 50%;
+  right: 20%;
 }
 
 .left-arrow {
   position: absolute;
   left: 20%;
-  top:50%;
+  top: 50%;
   font-size: 1.5rem;
   color: #000;
   z-index: 10;
@@ -152,8 +154,8 @@
   transition-duration: 1s;
 }
 
-.right-arrow:hover, .left-arrow:hover{
+.right-arrow:hover,
+.left-arrow:hover {
   opacity: 0.5;
   color: gray
-  
 }
