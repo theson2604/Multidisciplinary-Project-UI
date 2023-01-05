@@ -13,7 +13,7 @@ function Post() {
     const [Data, setData] = useState([]);
 
     const fetchData = async () => {
-        const response = await axios.get(`http://localhost:3000/posts/${id}`, {withCredentials: true})
+        const response = await axios.get(`http://localhost:3000/posts/${id}`, { withCredentials: true })
         setData(response);
         setLoading(false)
     }
@@ -32,6 +32,7 @@ function Post() {
                 :
                 <ViewPost
                     post={Data.data}
+                    id={id}
                 />
             }
         </Fragment>

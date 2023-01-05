@@ -15,7 +15,7 @@ function PreviewPost({ previewInfo }) {
     const HandleLiked = async () => {
         if (JSON.stringify(auth) === '{}') navigate('/login')
 
-        const response = await axios.get(`http://localhost:3000/posts/like?${previewInfo._id}`, { withCredentials: true })
+        const response = await axios.get(`http://localhost:3000/posts/like?postID=${previewInfo._id}`, { withCredentials: true })
 
         if (Liked === false) {
             setLikeNumber(likeNumber + 1)
