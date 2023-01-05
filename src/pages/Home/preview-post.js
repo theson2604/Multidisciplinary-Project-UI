@@ -3,15 +3,29 @@ import * as Icons5 from "react-icons/io5";
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "./index.css"
+import useAuth from './../../hooks/useAuth';
 
 function PreviewPost({ previewInfo }) {
+    const { auth, setAuth } = useAuth()
 
     const navigate = useNavigate()
     const [Liked, setLiked] = useState(previewInfo.liked)
+    const [likeNumber, setLikeNumber] = useState(previewInfo.like)
 
     const HandleLiked = async () => {
-        const response = await axios.get(`http://localhost:3000/posts/like?${previewInfo._id}`)
-        setLiked(response)
+        if (JSON.stringify(auth) === '{}') navigate('/login')
+
+        const response = await axios.get(`http://localhost:3000/posts/like?postID=${previewInfo._id}`, { withCredentials: true })
+
+        if (Liked === false) {
+            setLikeNumber(likeNumber + 1)
+        }
+        else {
+
+            setLikeNumber(likeNumber - 1)
+        }
+
+        setLiked(!Liked)
     }
 
     const showPost = () => {
@@ -37,14 +51,6 @@ function PreviewPost({ previewInfo }) {
             className='prev-post_uIcon'
             style={{ color: "red" }}
         />
-
-    useEffect(
-        () => {
-            // call API
-            console.log("User click on liked " + previewInfo.liked)
-        },
-        [Liked]
-    )
 
     return (
         <div className='prev-post hoverBigBlur' >
@@ -82,7 +88,7 @@ function PreviewPost({ previewInfo }) {
                         onClick={HandleLiked}
                     >
                         {ViewIcon}
-                        {previewInfo.like}
+                        {likeNumber}
                     </button>
                 </div>
             </div>

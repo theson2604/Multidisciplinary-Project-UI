@@ -3,7 +3,6 @@ import { Fragment } from 'react';
 import PreviewPost from "./preview-post"
 import axios from "axios";
 import LoadingAnimation from './loading';
-
 // PHONG TODO
 function Home() {
 
@@ -12,7 +11,7 @@ function Home() {
     const [Data, setData] = useState([])
 
     const fetchData = async () => {
-        const response = await axios.get("http://localhost:3000/posts/preview")
+        const response = await axios.get("http://localhost:3000/posts/preview", { withCredentials: true })
         setData(response)
         setLoading(false)
     }

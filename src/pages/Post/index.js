@@ -21,6 +21,7 @@ function Post() {
 
     useEffect(() => {
         fetchData()
+        // eslint-disable-next-line
     }, [])
 
 
@@ -32,6 +33,7 @@ function Post() {
                 :
                 <ViewPost
                     post={Data.data}
+                    id={id}
                 />
             }
         </Fragment>

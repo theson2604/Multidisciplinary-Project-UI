@@ -18,14 +18,15 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    let newuser = { fname, lname, loginName, password }
+    let newuser = { fname, lname, loginName, password, avatar: (avatar === null)? "" : avatar[0].data_url }
     try {
       // eslint-disable-next-line
       const response = await axios.post(`http://localhost:3000/users/signIn`,
-        newuser
+        newuser,
+        {withCredentials: true}
       )
       alert("Regitered successfully")
-      navigate('/')
+      navigate('/login')
     } catch (err) {
       alert("failed to regis")
     }
