@@ -33,17 +33,41 @@ function Add({modal, setModal}) {
         setModal(false)
     };
 
+    const handleImage = () => {
+        let img = []
+        images.map(image => {
+            img.push(image.data_url)
+        })
+        return img
+    }
+
+    const handleTag = () => {
+        let tags = []
+        for (let i=0; i<tag.length; i++) {
+            if (tag[i] === '#') {
+                let j=i+1, new_tag=''
+                while (tag[j] !== ' ' && j<tag.length) {
+                    new_tag = new_tag + tag[j]
+                    j++
+                }
+                if (new_tag.length !== 0) tags.push(new_tag)
+                i += j
+            }
+        }
+        return tags
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let post = {title, content: description, img: [images[0].data_url], tag: [tag]}
-        console.log(post)
+        const image = handleImage()
+        const tags = handleTag()
+        let post = {title, content: description, img: image, tag: tags}
         try {
             // eslint-disable-next-line
             const response = await axios.post(`http://localhost:3000/posts/post`, 
                 post,
                 {withCredentials: true}
             )
-            console.log(response)
             alert("Added successfully")
             handleClose()
         } catch (err) {
@@ -117,6 +141,7 @@ function Add({modal, setModal}) {
                             id="outlined-basic" 
                             label="Tag" 
                             variant="outlined" 
+                            placeholder='each tag start with # and separated by a space'
                             onChange= {e => setTag(e.target.value)}
                             defaultValue={tag}
                         />
