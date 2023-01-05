@@ -19,6 +19,15 @@ function EditPost({modal, setModal, pid}) {
     const [description, setDescrip] = useState('')
     const [id, setId] = useState(-1)
 
+    const getTag = (tags=[]) => {
+        let tag = ''
+        for (let i=0; i<tags.length; i++) {
+            tag = tag + '#' + tags[i]
+            if (i !== tags.length-1) tag = tag + ' '
+        }
+        return tag
+    }
+    
     useEffect(() => {
         let isMounted = true
         const controller = new AbortController()
@@ -56,6 +65,22 @@ function EditPost({modal, setModal, pid}) {
         setImages(imageList);
     };
 
+    const handleTag = () => {
+        let tags = []
+        for (let i=0; i<tag.length; i++) {
+            if (tag[i] === '#') {
+                let j=i+1, new_tag=''
+                while (tag[j] !== ' ' && j<tag.length) {
+                    new_tag = new_tag + tag[j]
+                    j++
+                }
+                if (new_tag.length !== 0) tags.push(new_tag)
+                i += j
+            }
+        }
+        return tags
+    }
+
     const handleClose = () => {
         setTitle("")
         setImages([])
@@ -66,7 +91,7 @@ function EditPost({modal, setModal, pid}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let post = {title, content: description, img: [images[0].data_url], tag: [tag]}
+        let post = {title, content: description, img: [images[0].data_url], tag: handleTag()}
         try {
             // eslint-disable-next-line
             const response = await axios.put(`http://localhost:3000/posts/${id}`,
