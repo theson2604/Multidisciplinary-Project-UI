@@ -4,11 +4,19 @@ import PreviewBox from "./preview-box"
 import axios from "axios";
 import { useEffect, useState } from "react";
 import LoadingAnimation from "../Home/loading";
+import { Navigate, useNavigate } from 'react-router-dom';
+import useAuth from './../../hooks/useAuth';
 
 function Administration() {
+    const { auth, setAuth } = useAuth()
+
+    const navigate = useNavigate()
 
     const [Loading, setLoading] = useState(true)
+
     const [Data, setData] = useState([])
+
+    if (JSON.stringify(auth) === '{}') navigate('/login')
 
     const fetchData = async () => {
         const response = await axios.get("http://localhost:3000/admin/preview", { withCredentials: true })

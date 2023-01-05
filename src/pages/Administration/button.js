@@ -8,13 +8,16 @@ function Button({ title, postId, setHidenPost }) {
 
     const ApproveHandle = () => {
         // console.log("Approve call API for this" + postId)
-        const response = axios.get(`http://localhost:3000/admin/approve?postID=${postId}`)
+        const response = axios.get(`http://localhost:3000/admin/approve?postID=${postId}`, { withCredentials: true })
+        console.log(response)
         setHidenPost(true)
     }
 
     const DeclineHandle = () => {
         // console.log("Decline call API for this" + postId)
-        const response = axios.get(`http://localhost:3000/admin/:${postId}`)
+        const response = axios.get(`http://localhost:3000/admin/:${postId}`, { withCredentials: true })
+        console.log(response)
+
         setHidenPost(true)
 
     }
