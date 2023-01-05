@@ -86,10 +86,10 @@ function Sidebar() {
                     }}
                     className={clsx(styles.page)}
                     onClick={() => handleClick('/setting')}
-                > */}
+                >
                     <FontAwesomeIcon icon={faGear} />
                     <span>SETTING</span>
-                </div>
+                </div> */}
                 {(JSON.stringify(auth) !== '{}')?
                     <div className={clsx(styles.page)} onClick={signOut}>
                         <FontAwesomeIcon icon={faRightFromBracket} />
