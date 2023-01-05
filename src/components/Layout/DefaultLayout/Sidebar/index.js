@@ -32,10 +32,8 @@ function Sidebar() {
     const signOut = async (e) => {
         e.preventDefault()
         const response = await axios.get('http://localhost:3000/users/logout')
-        console.log(response, 'logout')
         if (response?.data === true) {  
             setAuth({}) 
-            alert('logouted')
         }
         else console.log('failed')
     }
@@ -81,7 +79,7 @@ function Sidebar() {
                     <span>ADMININSTRATION</span>
                 </div>:<></>
                 }
-                <div 
+                {/* <div 
                     style={{
                         background: (clicked==='/setting')? 'rgba(0, 0, 0, 0.05)' : '',
                         borderRadius: (clicked==='/setting')? '10px' : ''
@@ -91,7 +89,7 @@ function Sidebar() {
                 >
                     <FontAwesomeIcon icon={faGear} />
                     <span>SETTING</span>
-                </div>
+                </div> */}
                 {(JSON.stringify(auth) !== '{}')?
                     <div className={clsx(styles.page)} onClick={signOut}>
                         <FontAwesomeIcon icon={faRightFromBracket} />

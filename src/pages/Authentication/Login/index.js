@@ -30,7 +30,6 @@ function Login(props) {
   }, [username, password])
 
   const handleSubmit = async (e) => {
-    console.log('test:', username, password)
     e.preventDefault()
     const loginName = username
     const response = await axios.post('http://localhost:3000/users/login',
