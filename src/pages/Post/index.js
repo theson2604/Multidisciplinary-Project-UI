@@ -13,7 +13,8 @@ function Post() {
     const [Data, setData] = useState([]);
 
     const fetchData = async () => {
-        const response = await axios.get(`http://localhost:3000/posts/${id}`, { withCredentials: true })
+        const response = await axios.get(`http://localhost:3000/posts/${id}`, {withCredentials: true})
+        const likeAPI = await axios.get(`http://localhost:3000/posts/like?postID=${id}`, {withCredentials: true})
         setData(response);
         setLoading(false)
     }
