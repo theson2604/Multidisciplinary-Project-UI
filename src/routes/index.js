@@ -10,7 +10,8 @@ import Register from "../pages/Authentication/Register";
 
 const allRoutes = [
     // {path: 'unauthorized', component: Unauthorized, layout:'unauthorized'},
-    {path: '/', component: Login, layout: 'authen'},
+    {path: '/', component: Home},
+    {path: '/login', component: Login, layout: 'authen'},
     {path: '/register', component: Register, layout: 'authen'},
     {path: 'home', component: Home},
     {path: 'trending', component: Trending},

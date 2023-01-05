@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useState } from 'react'
+// import { Navigate, useNavigate } from 'react-router-dom';
 import "./index.css"
 import * as Icons5 from "react-icons/io5";
 import report from "./Vector.png"
@@ -8,9 +8,9 @@ import ImageSlider from './image'
 function ViewPost({ post }){
     const [Liked, setLiked] = useState(post.liked)
     const HandleLiked = () => {
-        if(post.liked = true)
+        if(post.liked === true)
         setLiked(!Liked)
-        else if(post.liked = false)
+        else if(post.liked === false)
         {
           setLiked(!Liked);
           post.like++;

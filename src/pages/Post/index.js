@@ -20,6 +20,7 @@ function Post() {
 
     useEffect(() => {
         fetchData()
+        // eslint-disable-next-line
     }, [])
 
 

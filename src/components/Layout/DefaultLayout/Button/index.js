@@ -11,7 +11,7 @@ function Buttons( {setModal} ) {
   const navigate = useNavigate()
 
   const handleClick = (type) => {
-    if (JSON.stringify(auth) === '{}') navigate('/')
+    if (JSON.stringify(auth) === '{}') navigate('/login')
     else if (type === 'create') setModal(true)
     else navigate('/edit')
   }  

@@ -31,7 +31,7 @@ const ImageSlider = ({ slides }) => {
             <IoCaretBackCircleOutline className='left-arrow' onClick={prevSlide} />
             <IoCaretForwardCircleOutline className='right-arrow' onClick={nextSlide} />
             {index === current && (
-              <img src={slide} alt='travel image' className='image' />
+              <img src={slide} alt='travel' className='image' />
             )}
           </div>
         );
